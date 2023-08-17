@@ -1,0 +1,27 @@
+// command to run and start server: npm run server (located in backend server)
+PORT: 2000
+Database comes pre filled with 11 books.
+server is running on localhost:2000/books (tested done on postman).
+mongo atlas key: mongodb+srv://reh119:123456RH@librarybookcluster0.xmlhtws.mongodb.net/librarybookmernapp?retryWrites=true&w=majority
+Also included in .env file
+Wild Card enabled.
+////////////////////////////////////////
+
+Front END:
+
+1.) List Books and List checked out/in books exclusively
+to run: mongoDBassign/frontend/client, then "npm start" to start the server (starting on port http://localhost:8000))
+Database updated with 11 books, 10 of which are available to check out
+-To list out books, click the link: 'List Books'
+-To list out checked out books or checked in books (avail/not avail), simply use the form underneath 'Status'
+header on the table. Typing 'f' will list only checked out books (avail = false).
+typing 't' will list out only the books still checked in (avail = true).
+typing 'f' will list out all books that are false (checked out, avail = false)
+This was done using the React Table feature, can adjust rows being shown, incase database grows.
+
+//
+2.) Update/Checkout/Checkin Feature
+-Right hand side of the table, theres a button to update.
+
+- click the button to update the availlibility of a book, which is the action of checking it in our out for someone
+- after the update book comes up, I was not able to complete the functionality to update a book to be checkout or in (last feature)
