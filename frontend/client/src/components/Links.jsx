@@ -20,6 +20,7 @@ class Links extends Component {
       <React.Fragment>
         <Link to="/" className="navbar-brand">
          Library Book Manager
+
         </Link>
         <Collapse>
           <List>
@@ -29,9 +30,6 @@ class Links extends Component {
               </Link>
               <Link to="/books/list" className="nav-link"> 
                 Update Books
-              </Link>
-              <Link to="/books/list" className="nav-link">
-                List Books
               </Link>
               <Link to="/books/list" className="nav-link">
                 Add Books
