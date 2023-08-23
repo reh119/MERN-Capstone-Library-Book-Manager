@@ -28,7 +28,7 @@ class Links extends Component {
               <Link to="/books/list" className="nav-link">
                 List Books
               </Link>
-              <Link to="/books/list" className="nav-link"> 
+              <Link to="/books/Update" className="nav-link"> 
                 Update Books
               </Link>
               <Link to="/books/list" className="nav-link">

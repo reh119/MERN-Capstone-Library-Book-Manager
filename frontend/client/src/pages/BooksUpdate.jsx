@@ -1,36 +1,45 @@
-// import React, { Component } from 'react';
-// import axios from 'axios';
-// import styled from 'styled-components';
+import axios from 'axios';
+import React, { useState } from 'react';
+import { useParams } from 'react-router-dom';
 
-// const Title = styled.h1.attrs({
-//   className: 'h1',
-// })``;
+const api = axios.create({
+  baseURL: 'http://localhost:2000',
+});
 
-// const Wrapper = styled.div.attrs({
-//   className: 'form-group',
-// })`
-//   margin: 0 30px;
-// `;
+function BooksUpdate() {
+  const { id } = useParams();
+  const [title, setTitle] = useState('');
 
-// const Label = styled.label`
-//   margin: 5px;
-// `;
+  const handleUpdateBook = async () => {
+    const payload = { title };
 
-// const InputText = styled.input.attrs({
-//   className: 'form-control',
-// })`
-//   margin: 5px;
-// `;
+    try {
+      await api.put(`/books/:${id}`, payload);
+      window.alert(`Book updated successfully`);
+      setTitle('');
+    } catch (error) {
+      console.error('Error updating book:', error);
+    }
+  };
 
-// const Button = styled.button.attrs({
-//   className: `btn btn-primary`,
-// })`
-//   margin: 15px 15px 15px 5px;
-// `;
+  return (
+    <div>
+      <h2>Update Book</h2>
 
-// const api = axios.create({
-//   baseURL: 'http://localhost:2000',
-// });
+      <label>Title: </label>
+      <input
+        type="text"
+        value={title}
+        onChange={(e) => setTitle(e.target.value)}
+      />
+
+      <button onClick={handleUpdateBook}>Update Book</button>
+    </div>
+  );
+}
+
+export default BooksUpdate;
+
 
 // class BooksUpdate extends Component {
 //   constructor(props) {
