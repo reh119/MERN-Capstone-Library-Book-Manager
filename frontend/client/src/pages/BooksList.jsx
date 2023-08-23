@@ -1,8 +1,7 @@
-import React, { Component } from 'react';
+
 import axios from 'axios';
-
 import styled from 'styled-components';
-
+import React, { useState, useEffect } from 'react'
 import ReactTable from 'react-table-6';
 import 'react-table-6/react-table.css';
 const Wrapper = styled.div`
@@ -17,40 +16,59 @@ const api = axios.create({
   baseURL: 'http://localhost:2000',
 });
 
-class UpdateBook extends Component {
-  updateUser = (event) => {
-    event.preventDefault();
+// class UpdateBook extends Component {
+//   updateUser = (event) => {
+//     event.preventDefault();
 
-    window.location.href = `/books/update/${this.props.id}`;
-  };
+//     window.location.href = `/books/update/${this.props.id}`;
+//   };
 
-  render() {
-    return <Update onClick={this.updateUser}>Update</Update>;
-  }
-}
+//   render() { // doesnt work
+//     return <Update onClick={this.updateUser}>Update</Update>;
+//   }
+// }
 //
-class BooksList extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      books: [],
-      columns: [],
-      isLoading: false,
+const BooksList = () => {
+  // constructor(props) { // used when this was a class 
+  //   super(props);
+  //   this.state = {
+  //     books: [],
+  //     columns: [],
+  //     isLoading: false,
+  //   };
+  // }
+
+  const [books, setBooks] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+
+  // componentDidMount = async () => { since this is a function,we will use 'useEffect' instead 
+  //   this.setState({ isLoading: true });
+  //   await api.get('/books').then((books) => {
+  //     this.setState({
+  //       books: books.data,
+  //       isLoading: false,
+  //     });
+  //   });
+  // };
+
+
+
+  useEffect(() => {
+    const fetchBooks = async () => {
+      setIsLoading(true);
+      const response = await axios.get('books');
+      setBooks(response.data);
+      setIsLoading(false);
     };
-  }
 
-  componentDidMount = async () => {
-    this.setState({ isLoading: true });
-    await api.get('/books').then((books) => {
-      this.setState({
-        books: books.data,
-        isLoading: false,
-      });
-    });
-  };
+    fetchBooks();
 
-  render() {
-    const { books, isLoading } = this.state;
+  }, []); 
+
+
+
+  // render() { render not used in functional components 
+   //  const { books, isLoading } = this.state; // not used in functional coponents 
     console.log('TCL: BooksList -> render -> books', books);
 
     const columns = [
@@ -85,19 +103,19 @@ class BooksList extends Component {
         Header: 'Due Date',
         accessor: 'due',
 
-        // Cell: (props) => <span>{props.value.join(' / ')}</span>,
+
       },
-      {
-        Header: '',
-        accessor: '',
-        Cell: function (props) {
-          return (
-            <span>
-              <UpdateBook id={props.original._id} />
-            </span>
-          );
-        },
-      },
+      // {
+      //   Header: '',
+      //   accessor: '',
+      //   Cell: function (props) {
+      //     return (
+      //       <span>
+      //         <UpdateBook id={props.original._id} /> // for update functionality
+      //       </span>
+      //     );
+      //   },
+      // },
     ];
 
     let showTable = true;
@@ -120,6 +138,6 @@ class BooksList extends Component {
       </Wrapper>
     );
   }
-}
+
 
 export default BooksList;

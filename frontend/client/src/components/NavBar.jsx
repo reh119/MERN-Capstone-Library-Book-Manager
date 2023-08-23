@@ -12,7 +12,7 @@ const Nav = styled.nav.attrs({
 })`
   margin-bottom: 20 px;
 `;
-
+// for styling the nav bar
 class NavBar extends Component {
   render() {
     return (

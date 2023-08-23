@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-
+// for our nav bar up top
 const Collapse = styled.div.attrs({
   className: 'collpase navbar-collapse',
 })``;
@@ -26,6 +26,18 @@ class Links extends Component {
             <Item>
               <Link to="/books/list" className="nav-link">
                 List Books
+              </Link>
+              <Link to="/books/list" className="nav-link"> 
+                Update Books
+              </Link>
+              <Link to="/books/list" className="nav-link">
+                List Books
+              </Link>
+              <Link to="/books/list" className="nav-link">
+                Add Books
+              </Link>
+              <Link to="/books/list" className="nav-link">
+                Check In-Out 
               </Link>
             </Item>
           </List>
