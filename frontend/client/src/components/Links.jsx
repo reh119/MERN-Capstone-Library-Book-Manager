@@ -19,7 +19,7 @@ class Links extends Component {
     return (
       <React.Fragment>
         <Link to="/" className="navbar-brand">
-          My first MERN Application
+         Library Book Manager
         </Link>
         <Collapse>
           <List>

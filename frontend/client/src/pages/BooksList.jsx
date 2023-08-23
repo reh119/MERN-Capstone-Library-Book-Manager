@@ -41,7 +41,6 @@ class BooksList extends Component {
 
   componentDidMount = async () => {
     this.setState({ isLoading: true });
-
     await api.get('/books').then((books) => {
       this.setState({
         books: books.data,
@@ -72,7 +71,7 @@ class BooksList extends Component {
         accessor: 'publisher',
       },
       {
-        Header: 'Status',
+        Header: 'Statuss',
         accessor: 'avail',
         filterable: true,
         // Cell: (props) => <span>{props.value.join(' / ')}</span>,

@@ -2,7 +2,8 @@
 PORT: 2000
 Database comes pre filled with 11 books.
 server is running on localhost:2000/books (tested done on postman).
-mongo atlas key: mongodb+srv://reh119:123456RH@librarybookcluster0.xmlhtws.mongodb.net/librarybookmernapp?retryWrites=true&w=majority
+mongo atlas key: mongodb+srv://reh119:123456RH@librarybookcluster0.xmlhtws.mongodb.net/librarybookmernapp?retryWrites=true&w=majority 
+YOU HAVE TO CONNECT TO DB FORST ^^
 Also included in .env file
 Wild Card enabled.
 ////////////////////////////////////////
@@ -25,3 +26,9 @@ This was done using the React Table feature, can adjust rows being shown, incase
 
 - click the button to update the availlibility of a book, which is the action of checking it in our out for someone
 - after the update book comes up, I was not able to complete the functionality to update a book to be checkout or in (last feature)
+08/23/2023
+------------------
+//  GET, POST : localhost:2000/books
+// PUT DELETE: localhost:2000/books/id
+As of right now all html request listed above work correctly. 
+// Changes will consist of refactoring majority of UI mostly starting from scratch.
