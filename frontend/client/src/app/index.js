@@ -5,6 +5,7 @@ import { BooksList } from '../pages';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import BooksUpdate from '../pages/BooksUpdate';
+import { BooksAdd } from '../pages'; // Corrected import statement
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       <Routes>
         <Route path="/books/list" element={<BooksList />} />
         <Route path="/books/update/:_id" element={<BooksUpdate />} />
+        <Route path="/books/Add" element={<BooksAdd />} />
       </Routes>
     </Router>
   );

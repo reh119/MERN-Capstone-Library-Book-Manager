@@ -33,6 +33,9 @@ class Links extends Component {
               <Link to="/books/Update/:id" className="nav-link">
                 Update Books
               </Link>
+              <Link to="/books/Add" className="nav-link">
+                Add Books
+              </Link>
               {/* <Link to="/books/list" className="nav-link">
                 Add Books
               </Link>
