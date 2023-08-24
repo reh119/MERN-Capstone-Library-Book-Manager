@@ -14,13 +14,14 @@ const Item = styled.div.attrs({
   className: 'collpase navbar-collapse',
 })``;
 
+// ... (other imports)
+
 class Links extends Component {
   render() {
     return (
       <React.Fragment>
         <Link to="/" className="navbar-brand">
-         Library Book Manager
-
+          Library Book Manager
         </Link>
         <Collapse>
           <List>
@@ -28,15 +29,16 @@ class Links extends Component {
               <Link to="/books/list" className="nav-link">
                 List Books
               </Link>
-              <Link to="/books/Update" className="nav-link"> 
+              {/* Change the link to use a dynamic route with book ID */}
+              <Link to="/books/Update/:id" className="nav-link">
                 Update Books
               </Link>
-              <Link to="/books/list" className="nav-link">
+              {/* <Link to="/books/list" className="nav-link">
                 Add Books
               </Link>
               <Link to="/books/list" className="nav-link">
                 Check In-Out 
-              </Link>
+              </Link> */}
             </Item>
           </List>
         </Collapse>
@@ -46,3 +48,4 @@ class Links extends Component {
 }
 
 export default Links;
+
